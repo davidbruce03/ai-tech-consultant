@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <title>AI Tech Consultant</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="robot">🤖</div>
+      <div>
+        <h1>AI Tech Consultant</h1>
+        <span>Inbox Agent</span>
+      </div>
+    </div>
+
+    <div class="connection">
+      <span class="dot"></span>
+      <div>
+        <strong>Task 1 API Connected</strong>
+        <small>http://127.0.0.1:8000</small>
+      </div>
+    </div>
+
+    <div class="user">
+      <div class="avatar">S</div>
+      Silas
+    </div>
+  </header>
+
+  <main class="layout">
+
+    <aside class="sidebar">
+      <button class="nav active" onclick="showSection('inbox')">
+        ✉️ Inbox
+      </button>
+
+      <button class="nav" onclick="showSection('chat')">
+        💬 Chat
+      </button>
+
+      <button class="nav" onclick="showSection('drafts')">
+        📄 Drafts
+      </button>
+
+      <button class="nav" onclick="showSection('escalations')">
+        ⚠️ Escalations
+      </button>
+
+      <button class="nav">
+        ➤ Sent
+      </button>
+
+      <button class="nav">
+        ⚙️ Settings
+      </button>
+
+      <div class="status-card">
+        <span class="dot"></span>
+        <strong>Task 1<br />Knowledge Brain</strong>
+        <small>Connected</small>
+      </div>
+    </aside>
+
+    <section class="conversations">
+
+      <div class="section-header">
+        <h2>Conversations</h2>
+        <button class="new-btn" onclick="showSection('chat')">
+          + New
+        </button>
+      </div>
+
+      <input
+        id="search"
+        class="search"
+        placeholder="🔍 Search emails..."
+        oninput="filterDrafts()"
+      />
+
+      <div id="conversationList"></div>
+
+    </section>
+
+    <section class="main-panel">
+
+      <div class="section-title">
+        <div>
+          <h2 id="panelTitle">Inbox Agent</h2>
+          <span id="panelSubtitle">
+            Human-approved knowledge assistant
+          </span>
+        </div>
+      </div>
+
+      <div id="content" class="content">
+        <div class="empty">
+          Loading drafts...
+        </div>
+      </div>
+
+    </section>
+
+    <aside class="right-panel">
+
+      <h3>Sources</h3>
+
+      <div id="sources">
+        <div class="empty-small">
+          Sources will appear here.
+        </div>
+      </div>
+
+      <div class="actions">
+
+        <h3>Actions</h3>
+
+        <button
+          id="approveBtn"
+          class="action primary"
+          onclick="approveCurrent()"
+        >
+          ✓ Approve Draft
+        </button>
+
+        <button
+          id="editBtn"
+          class="action"
+          onclick="editCurrent()"
+        >
+          ✎ Edit Draft
+        </button>
+
+        <button
+          id="rejectBtn"
+          class="action danger"
+          onclick="rejectCurrent()"
+        >
+          ✕ Reject Draft
+        </button>
+
+        <button
+          class="action"
+          onclick="escalateCurrent()"
+        >
+          👤 Escalate to Human
+        </button>
+
+      </div>
+
+      <div class="details">
+        <h3>Email Details</h3>
+        <p><strong>From:</strong> <span id="detailFrom">—</span></p>
+        <p><strong>Subject:</strong> <span id="detailSubject">—</span></p>
+        <p><strong>Status:</strong> <span id="detailStatus">—</span></p>
+      </div>
+
+    </aside>
+
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
